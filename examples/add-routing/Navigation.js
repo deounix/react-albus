@@ -1,5 +1,5 @@
-import React from 'react';
-import { WithWizard } from 'react-albus';
+import React from "react";
+import { WithWizard } from "react-albus";
 
 const Navigation = () => (
   <WithWizard

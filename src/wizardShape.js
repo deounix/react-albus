@@ -12,22 +12,22 @@
  * the License.
  */
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default PropTypes.shape({
   go: PropTypes.func.isRequired,
   set: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.shape({}).isRequired,
   next: PropTypes.func.isRequired,
   previous: PropTypes.func.isRequired,
   push: PropTypes.func.isRequired,
   replace: PropTypes.func.isRequired,
   step: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
   }).isRequired,
   steps: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired
     }).isRequired
-  ).isRequired,
+  ).isRequired
 });

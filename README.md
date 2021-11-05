@@ -12,7 +12,7 @@ React Albus is otherwise unopinionated and allows you to compose functionality s
 ## 💻 Installation
 
 ```
-npm install react-albus
+npm install react-albus2
 ```
 
 ## 📘 Example

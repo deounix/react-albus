@@ -12,25 +12,25 @@
  * the License.
  */
 
-import React from 'react';
-import { shallow } from 'enzyme';
-import { withWizard } from '../src';
+import React from "react";
+import { shallow } from "enzyme";
+import { withWizard } from "../src";
 
 const WrappedComponent = () => <div />;
 const context = {
   wizard: {
-    hogwarts: 'rules',
-  },
+    hogwarts: "rules"
+  }
 };
 
-describe('withWizard', () => {
-  it('should add wizard prop to wrapped component', () => {
+describe("withWizard", () => {
+  it("should add wizard prop to wrapped component", () => {
     const Wrapped = withWizard(WrappedComponent);
     const rendered = shallow(<Wrapped />, { context });
     expect(rendered).toMatchSnapshot();
   });
 
-  it('should use component props over context', () => {
+  it("should use component props over context", () => {
     const Wrapped = withWizard(WrappedComponent);
     const rendered = shallow(<Wrapped wizard="hogwarts" />, { context });
     expect(rendered).toMatchSnapshot();

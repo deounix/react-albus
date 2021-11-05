@@ -12,14 +12,14 @@
  * the License.
  */
 
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Step } from '../../src';
+import React from "react";
+import { shallow } from "enzyme";
+import { Step } from "../../src";
 
-const context = { wizard: { drinkMore: 'butter beer' } };
+const context = { wizard: { drinkMore: "butter beer" } };
 
-describe('Step', () => {
-  it('should render children', () => {
+describe("Step", () => {
+  it("should render children", () => {
     const rendered = shallow(
       <Step>
         <div />
@@ -30,7 +30,7 @@ describe('Step', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  it('should pass wizard to function as child', () => {
+  it("should pass wizard to function as child", () => {
     shallow(
       <Step>
         {wizard => {
@@ -41,7 +41,7 @@ describe('Step', () => {
     );
   });
 
-  it('should pass wizard to render prop', () => {
+  it("should pass wizard to render prop", () => {
     shallow(
       <Step
         render={wizard => {

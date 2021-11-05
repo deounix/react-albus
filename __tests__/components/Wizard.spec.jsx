@@ -12,13 +12,13 @@
  * the License.
  */
 
-import React from 'react';
-import { mount } from 'enzyme';
+import React from "react";
+import { mount } from "enzyme";
 
-import { Wizard, Steps, Step, WithWizard } from '../../src';
+import { Wizard, Steps, Step, WithWizard } from "../../src";
 
-describe('Wizard', () => {
-  describe('with no props', () => {
+describe("Wizard", () => {
+  describe("with no props", () => {
     let wizard;
     let mounted;
     beforeEach(() => {
@@ -42,41 +42,41 @@ describe('Wizard', () => {
       );
     });
 
-    it('should go to the next and previous steps', () => {
+    it("should go to the next and previous steps", () => {
       const { next, previous } = wizard;
-      expect(wizard.step).toEqual({ id: 'gryffindor' });
+      expect(wizard.step).toEqual({ id: "gryffindor" });
       next();
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+      expect(wizard.step).toEqual({ id: "slytherin" });
       previous();
-      expect(wizard.step).toEqual({ id: 'gryffindor' });
+      expect(wizard.step).toEqual({ id: "gryffindor" });
     });
 
-    it('should push steps onto the stack', () => {
+    it("should push steps onto the stack", () => {
       const { push } = wizard;
-      expect(wizard.step).toEqual({ id: 'gryffindor' });
-      push('slytherin');
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+      expect(wizard.step).toEqual({ id: "gryffindor" });
+      push("slytherin");
+      expect(wizard.step).toEqual({ id: "slytherin" });
     });
 
-    it('should replace steps in the stack', () => {
+    it("should replace steps in the stack", () => {
       const { replace } = wizard;
       replace();
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+      expect(wizard.step).toEqual({ id: "slytherin" });
     });
 
-    it('should pull steps off the stack', () => {
+    it("should pull steps off the stack", () => {
       const { next, go } = wizard;
-      expect(wizard.step).toEqual({ id: 'gryffindor' });
+      expect(wizard.step).toEqual({ id: "gryffindor" });
       next();
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+      expect(wizard.step).toEqual({ id: "slytherin" });
       go(-1);
-      expect(wizard.step).toEqual({ id: 'gryffindor' });
+      expect(wizard.step).toEqual({ id: "gryffindor" });
     });
 
-    it('should do nothing if an invalid step is pushed', () => {
+    it("should do nothing if an invalid step is pushed", () => {
       const { push } = wizard;
-      push('hufflepuff');
-      expect(wizard.step).toEqual({ id: 'gryffindor' });
+      push("hufflepuff");
+      expect(wizard.step).toEqual({ id: "gryffindor" });
     });
 
     afterEach(() => {
@@ -84,7 +84,7 @@ describe('Wizard', () => {
     });
   });
 
-  describe('with onNext prop', () => {
+  describe("with onNext prop", () => {
     const onNext = jest.fn(({ push }) => push());
 
     let wizard;
@@ -110,11 +110,11 @@ describe('Wizard', () => {
       );
     });
 
-    it('call onNext and go to the next step', () => {
+    it("call onNext and go to the next step", () => {
       const { next } = wizard;
       next();
       expect(onNext).toHaveBeenCalled();
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+      expect(wizard.step).toEqual({ id: "slytherin" });
     });
 
     afterEach(() => {
@@ -122,13 +122,13 @@ describe('Wizard', () => {
     });
   });
 
-  describe('with existing history', () => {
+  describe("with existing history", () => {
     const history = {
       replace: () => null,
       listen: () => () => null,
       location: {
-        pathname: '/slytherin',
-      },
+        pathname: "/slytherin"
+      }
     };
 
     let wizard;
@@ -154,8 +154,8 @@ describe('Wizard', () => {
       );
     });
 
-    it('starts at the step in history', () => {
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+    it("starts at the step in history", () => {
+      expect(wizard.step).toEqual({ id: "slytherin" });
     });
 
     afterEach(() => {
@@ -163,13 +163,13 @@ describe('Wizard', () => {
     });
   });
 
-  describe('with existing history and non-strict route matching', () => {
+  describe("with existing history and non-strict route matching", () => {
     const history = {
       replace: () => null,
       listen: () => () => null,
       location: {
-        pathname: '/slytherin/snape',
-      },
+        pathname: "/slytherin/snape"
+      }
     };
 
     let wizard;
@@ -195,8 +195,8 @@ describe('Wizard', () => {
       );
     });
 
-    it('matches the step', () => {
-      expect(wizard.step).toEqual({ id: 'slytherin' });
+    it("matches the step", () => {
+      expect(wizard.step).toEqual({ id: "slytherin" });
     });
 
     afterEach(() => {

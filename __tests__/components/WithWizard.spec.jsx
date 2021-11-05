@@ -12,14 +12,14 @@
  * the License.
  */
 
-import React from 'react';
-import { shallow } from 'enzyme';
-import { WithWizard } from '../../src';
+import React from "react";
+import { shallow } from "enzyme";
+import { WithWizard } from "../../src";
 
-const context = { wizard: { drinkMore: 'butter beer' } };
+const context = { wizard: { drinkMore: "butter beer" } };
 
-describe('WithWizard', () => {
-  it('should render children', () => {
+describe("WithWizard", () => {
+  it("should render children", () => {
     const rendered = shallow(
       <WithWizard>
         <div />
@@ -30,7 +30,7 @@ describe('WithWizard', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  it('should pass wizard to function as child', () => {
+  it("should pass wizard to function as child", () => {
     shallow(
       <WithWizard>
         {wizard => {
@@ -41,7 +41,7 @@ describe('WithWizard', () => {
     );
   });
 
-  it('should pass wizard to render prop', () => {
+  it("should pass wizard to render prop", () => {
     shallow(
       <WithWizard
         render={wizard => {

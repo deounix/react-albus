@@ -12,8 +12,8 @@
  * the License.
  */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Steps extends Component {
   componentDidMount() {
@@ -36,16 +36,16 @@ class Steps extends Component {
 Steps.propTypes = {
   children: PropTypes.node.isRequired,
   step: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-  }),
+    id: PropTypes.string.isRequired
+  })
 };
 
 Steps.defaultProps = {
-  step: null,
+  step: null
 };
 
 Steps.contextTypes = {
-  wizard: PropTypes.object,
+  wizard: PropTypes.object
 };
 
 export default Steps;

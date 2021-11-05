@@ -12,24 +12,24 @@
  * the License.
  */
 
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Steps } from '../../src';
+import React from "react";
+import { shallow } from "enzyme";
+import { Steps } from "../../src";
 
 const Step = () => null;
 
 const context = {
   wizard: {
     step: {
-      id: null,
+      id: null
     },
     steps: [],
-    init: jest.fn(),
-  },
+    init: jest.fn()
+  }
 };
 
-describe('Steps', () => {
-  it('should call init', () => {
+describe("Steps", () => {
+  it("should call init", () => {
     shallow(
       <Steps>
         <Step id="hogwarts" />
@@ -37,12 +37,12 @@ describe('Steps', () => {
       { context }
     );
 
-    expect(context.wizard.init).toHaveBeenCalledWith([{ id: 'hogwarts' }]);
+    expect(context.wizard.init).toHaveBeenCalledWith([{ id: "hogwarts" }]);
   });
 
-  it('should render correct child if controlled', () => {
+  it("should render correct child if controlled", () => {
     const rendered = shallow(
-      <Steps step={{ id: 'hogwarts' }}>
+      <Steps step={{ id: "hogwarts" }}>
         <Step id="hogwarts" />
         <Step id="gryffindor" />
       </Steps>,

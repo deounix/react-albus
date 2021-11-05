@@ -12,17 +12,17 @@
  * the License.
  */
 
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import { createMemoryHistory } from 'history';
-import renderCallback from '../utils/renderCallback';
+import { Component } from "react";
+import PropTypes from "prop-types";
+import { createMemoryHistory } from "history";
+import renderCallback from "../utils/renderCallback";
 
 class Wizard extends Component {
   state = {
     step: {
-      id: null,
+      id: null
     },
-    steps: [],
+    steps: []
   };
 
   getChildContext() {
@@ -36,8 +36,8 @@ class Wizard extends Component {
         previous: this.previous,
         push: this.push,
         replace: this.replace,
-        ...this.state,
-      },
+        ...this.state
+      }
     };
   }
 
@@ -76,9 +76,9 @@ class Wizard extends Component {
   steps = [];
 
   pathToStep = pathname => {
-    const id = pathname.replace(this.basename, '');
-    const [step] = this.state.steps.filter(
-      s => (this.props.exactMatch ? s.id === id : id.startsWith(s.id))
+    const id = pathname.replace(this.basename, "");
+    const [step] = this.state.steps.filter(s =>
+      this.props.exactMatch ? s.id === id : id.startsWith(s.id)
     );
 
     return step || this.state.step;
@@ -121,28 +121,28 @@ class Wizard extends Component {
 Wizard.propTypes = {
   basename: PropTypes.string,
   history: PropTypes.shape({
-    entries: PropTypes.array,
+    entries: PropTypes.shape([]),
     go: PropTypes.func,
     goBack: PropTypes.func,
     listen: PropTypes.func,
-    location: PropTypes.object,
+    location: PropTypes.shape({}),
     push: PropTypes.func,
-    replace: PropTypes.func,
+    replace: PropTypes.func
   }),
   onNext: PropTypes.func,
-  exactMatch: PropTypes.bool,
+  exactMatch: PropTypes.bool
 };
 
 Wizard.defaultProps = {
-  basename: '',
+  basename: "",
   history: null,
   onNext: null,
   render: null,
-  exactMatch: true,
+  exactMatch: true
 };
 
 Wizard.childContextTypes = {
-  wizard: PropTypes.object,
+  wizard: PropTypes.object
 };
 
 export default Wizard;
